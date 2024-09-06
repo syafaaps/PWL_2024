@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+//Praktikum 3
+Route::get('/greeting', [App\Http\Controllers\WelcomeController::class,'greeting']);
+// Route::get ('/greeting', function () {
+//     return view ('blog.hello', ['name' => 'Syava' ]) ;});
+
+//Praktikum 2
 use App\Htpp\Controllers\PhotoController;
 
 Route::resource ('photos', App\Http\Controllers\PhotoController:: class);
@@ -11,6 +18,7 @@ Route::resource ('photos', App\Http\Controllers\PhotoController:: class) ->excep
 Route::get('/homepage', [App\Http\Controllers\PageController::class,'home']);
 Route::get('/aboutpage', [App\Http\Controllers\PageController::class,'about']);
 Route::get('/articlespage/{id}', [App\Http\Controllers\PageController::class,'articles']);
+
 //
 
 Route::get('/index', [App\Http\Controllers\PageController::class,'index']);
@@ -19,13 +27,13 @@ Route::get('/about', [App\Http\Controllers\PageController::class,'about']);
 
 Route::get('/articles', [App\Http\Controllers\PageController::class,'articles']);
 
-
 Route::get('/hello', [App\Http\Controllers\WelcomeController::class,'hello']);
 
+
+//Praktikum 1
 Route::get('/user/{name?}', function ($name='John') { 
     return 'Nama saya '.$name; 
 });
-
 
 Route::get('/articles/{id}', function ($id) {
     return 'Halaman Artikel dengan ID '.$id;
